@@ -9,7 +9,7 @@
 
 function score() {
 
-    return "You won " + wins + " times and the computer won " + losses + " times and there were " + ties + " ties."
+    return "You have " + wins + " wins and " + losses + " losses."
 }
 
 wins = 0;
