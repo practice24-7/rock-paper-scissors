@@ -5,9 +5,29 @@
 //step three is a function that will take the previous functions
 //and decide who wins
 
-//function playRound(playerSelection, computerSelection) {
-    //code decides who wins
-//}
+//function playRound - code that decides who wins
+function playRound (computerSelection, playerSelection) {
+    if (computerSelection === "Rock" && playerSelection === "Scissors") {
+        return "Computer wins!  Rock beats Scissors.";
+    }else if (computerSelection === "Paper" && playerSelection === "Rock") {
+        return "Computer wins!  Paper covers Rock.";
+    }else if (computerSelection === "Scissors" && playerSelection === "Paper") {
+        return "Computer wins!  Scissors cut Paper.";
+    }else if (computerSelection === "Scissors" && playerSelection === "Scissors") {
+        return "You win!  Scissors beat Rock.";
+    }else if (computerSelection === "Rock" && playerSelection === "Paper") {
+        return "You win!  Paper covers Rock.";
+    }else if (computerSelection === "Paper" && playerSelection === "Scissors") {
+            return "You win!  Scissors cut Paper.";
+    }else if (computerSelection === "Rock" && playerSelection === "Rock") {
+            return "Nobody wins!  You both picked Rock.";
+    }else if (computerSelection === "Paper" && playerSelection === "Paper") {
+            return "Nobody wins!  You both picked Paper.";
+    }else if (computerSelection === "Scissors" && playerSelection === "Scissors") {
+            return "Nobody wins!  You both picked Scissors.";
+        }    
+    }
+
 function computerPlay() {
     //randomizes computers turn (rock, paper, or scissors)
     let computer = Math.floor(Math.random()*3);
@@ -39,6 +59,9 @@ function playerPlay() {
 
 
 //const playerSelection = "players input r/p/s";
-playerSelection = playerPlay();
+const playerSelection = playerPlay();
+
 //const computerSelection = computerPlay();
+const computerSelection = computerPlay();
+
 //console.log(playRound(playerSelection, computerSelection));
