@@ -5,41 +5,57 @@
 //step three is a function that will take the previous functions
 //and decide who wins
 
+//function score - tallies if you win or the computer (ignores ties)
+
+function score() {
+
+    return "You won " + wins + " times and the computer won " + losses + " times and there were " + ties + " ties."
+}
+
+wins = 0;
+losses = 0;
+ties = 0;
+
 //function game - takes playRound and runs it 5 times.
 function game() {
+
     let i = 0;
     while(i < 5) {
-        
-        let output = console.log(playRound(computerPlay(), playerPlay()));
-        if(output == "You win!  Rock beats Scissors." || output == "You win!  Scissors cut paper." || output == "You win!  Paper covers Rock.") {
-            let wins = wins + 1;
-        }else if(output === "Computer wins!  Rock beats Scissors." || output === "Computer wins!  Scissors cut paper." || output === "Computer wins!  Paper covers Rock.") {
-            let machineWins = machineWins + 1;
-        }
+        playRound(computerPlay(), playerPlay());
         i = i + 1;
     }
-    return "You won " + wins + " times.  Computer won " + machineWins + " times."
+    return "You won " + wins + " times and the computer won " + machine + " times and there were " + ties + " ties."
 }
 
 //function playRound - code that decides who wins
 function playRound (computerSelection, playerSelection) {
+    
     if (computerSelection === "Rock" && playerSelection === "Scissors") {
+        losses = losses +1;
         return "Computer wins!  Rock beats Scissors.";
     }else if (computerSelection === "Paper" && playerSelection === "Rock") {
+        losses = losses + 1;
         return "Computer wins!  Paper covers Rock.";
     }else if (computerSelection === "Scissors" && playerSelection === "Paper") {
+        losses = losses + 1;
         return "Computer wins!  Scissors cut Paper.";
     }else if (computerSelection === "Scissors" && playerSelection === "Rock") {
+        wins = wins + 1;
         return "You win!  Rock beats Scissors.";
     }else if (computerSelection === "Rock" && playerSelection === "Paper") {
+        wins = wins + 1;
         return "You win!  Paper covers Rock.";
     }else if (computerSelection === "Paper" && playerSelection === "Scissors") {
+        wins = wins + 1;
         return "You win!  Scissors cut Paper.";
     }else if (computerSelection === "Rock" && playerSelection === "Rock") {
+        ties = ties + 1;
         return "Nobody wins!  You both picked Rock.";
     }else if (computerSelection === "Paper" && playerSelection === "Paper") {
+        ties = ties + 1;
         return "Nobody wins!  You both picked Paper.";
-    }else {
+    }else if (computerSelection === "Paper" && playerSelection === "Paper"){
+        ties = ties+ 1;
         return "Nobody wins!  You both picked Scissors.";
         }    
     }
@@ -80,4 +96,3 @@ function playerPlay() {
 //const computerSelection = computerPlay();
 //const computerSelection = computerPlay();
 
-console.log(game());
