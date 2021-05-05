@@ -6,9 +6,11 @@
 //and decide who wins
 
 function playRound(playerSelection, computerSelection) {
-    //code
+    //code decides who wins
 }
-
+function computerPlay() {
+    //randomizes computers turn (rock, paper, or scissors)
+}
 const playerSelection = "players input r/p/s";
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
