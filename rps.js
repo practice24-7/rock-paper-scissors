@@ -20,6 +20,25 @@ function computerPlay() {
         return "Scissors";
     }
 }
+
+//function playerPlay prompts player for move.
+//saves move in variable
+
+function playerPlay() {
+    let player = prompt("Let's play Rock, Paper, Scissors!  Enter your choice: ")
+    if (player === "rock" || player === "Rock" || player === "ROCK") {
+        return "Rock";
+    } else if (player === "paper" || player === "Paper" || player === "PAPER") {
+        return "Paper";
+    } else if (player === "paper" || player === "Paper" || player === "PAPER") {
+        return "Scissors";
+    } else {
+        return alert("Please try again and be sure to type rock, paper, or scissors.")
+    }
+}
+
+
 //const playerSelection = "players input r/p/s";
+playerSelection = playerPlay();
 //const computerSelection = computerPlay();
 //console.log(playRound(playerSelection, computerSelection));
