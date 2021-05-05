@@ -7,11 +7,18 @@
 
 //function game - takes playRound and runs it 5 times.
 function game() {
-    i = 0;
+    let i = 0;
     while(i < 5) {
-    console.log(playRound(computerPlay(), playerPlay()));
-    i = i + 1;
+        
+        let output = console.log(playRound(computerPlay(), playerPlay()));
+        if(output == "You win!  Rock beats Scissors." || output == "You win!  Scissors cut paper." || output == "You win!  Paper covers Rock.") {
+            let wins = wins + 1;
+        }else if(output === "Computer wins!  Rock beats Scissors." || output === "Computer wins!  Scissors cut paper." || output === "Computer wins!  Paper covers Rock.") {
+            let machineWins = machineWins + 1;
+        }
+        i = i + 1;
     }
+    return "You won " + wins + " times.  Computer won " + machineWins + " times."
 }
 
 //function playRound - code that decides who wins
