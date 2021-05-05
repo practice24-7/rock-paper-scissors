@@ -5,6 +5,15 @@
 //step three is a function that will take the previous functions
 //and decide who wins
 
+//function game - takes playRound and runs it 5 times.
+function game() {
+    i = 0;
+    while(i < 5) {
+    console.log(playRound(computerPlay(), playerPlay()));
+    i = i + 1;
+    }
+}
+
 //function playRound - code that decides who wins
 function playRound (computerSelection, playerSelection) {
     if (computerSelection === "Rock" && playerSelection === "Scissors") {
@@ -13,18 +22,18 @@ function playRound (computerSelection, playerSelection) {
         return "Computer wins!  Paper covers Rock.";
     }else if (computerSelection === "Scissors" && playerSelection === "Paper") {
         return "Computer wins!  Scissors cut Paper.";
-    }else if (computerSelection === "Scissors" && playerSelection === "Scissors") {
-        return "You win!  Scissors beat Rock.";
+    }else if (computerSelection === "Scissors" && playerSelection === "Rock") {
+        return "You win!  Rock beats Scissors.";
     }else if (computerSelection === "Rock" && playerSelection === "Paper") {
         return "You win!  Paper covers Rock.";
     }else if (computerSelection === "Paper" && playerSelection === "Scissors") {
-            return "You win!  Scissors cut Paper.";
+        return "You win!  Scissors cut Paper.";
     }else if (computerSelection === "Rock" && playerSelection === "Rock") {
-            return "Nobody wins!  You both picked Rock.";
+        return "Nobody wins!  You both picked Rock.";
     }else if (computerSelection === "Paper" && playerSelection === "Paper") {
-            return "Nobody wins!  You both picked Paper.";
-    }else if (computerSelection === "Scissors" && playerSelection === "Scissors") {
-            return "Nobody wins!  You both picked Scissors.";
+        return "Nobody wins!  You both picked Paper.";
+    }else {
+        return "Nobody wins!  You both picked Scissors.";
         }    
     }
 
@@ -50,7 +59,7 @@ function playerPlay() {
         return "Rock";
     } else if (player === "paper" || player === "Paper" || player === "PAPER") {
         return "Paper";
-    } else if (player === "paper" || player === "Paper" || player === "PAPER") {
+    } else if (player === "scissors" || player === "Scissors" || player === "SCISSORS") {
         return "Scissors";
     } else {
         return alert("Please try again and be sure to type rock, paper, or scissors.")
@@ -59,9 +68,9 @@ function playerPlay() {
 
 
 //const playerSelection = "players input r/p/s";
-const playerSelection = playerPlay();
+//const playerSelection = playerPlay();
 
 //const computerSelection = computerPlay();
-const computerSelection = computerPlay();
+//const computerSelection = computerPlay();
 
-//console.log(playRound(playerSelection, computerSelection));
+console.log(game());
