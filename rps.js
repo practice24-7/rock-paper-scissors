@@ -6,57 +6,64 @@
 //and decide who wins
 
 //function score - tallies if you win or the computer (ignores ties)
+//function score() {
+//
+//    return "You have " + wins + " wins and " + losses + " losses."
+//}
 
-function score() {
-
-    return "You have " + wins + " wins and " + losses + " losses."
-}
-
-wins = 0;
-losses = 0;
-ties = 0;
+let wins = 0;
+let losses = 0;
+let results = " ";
 
 //function game - takes playRound and runs it 5 times.
 function game() {
+    //let wins = 0;
+    //let losses = 0;
+    //let results ="";
 
     let i = 0;
     while(i < 5) {
         playRound(computerPlay(), playerPlay());
+        if (results === "Computer wins!  Rock beats Scissors." || results === "Computer wins!  Paper covers Rock." || results === "Computer wins!  Scissors cut Paper.") {
+            losses = losses + 1;
+        }else if (results === "You win!  Rock beats Scissors." || results === "You win!  Paper covers Rock." || results === "You win!  Scissors cut Paper.") {
+            wins = wins + 1;
+        }
         i = i + 1;
     }
-    return "You won " + wins + " times and the computer won " + machine + " times and there were " + ties + " ties."
+    alert("You won " + wins + " times and lost " + losses + " times.")
 }
 
 //function playRound - code that decides who wins
 function playRound (computerSelection, playerSelection) {
-    
+    //let wins = 0;
+    //let losses = 0;
+    //let results = " ";
+
     if (computerSelection === "Rock" && playerSelection === "Scissors") {
-        losses = losses +1;
-        return "Computer wins!  Rock beats Scissors.";
+        losses = losses + 1;
+        results = alert( "Computer wins!  Rock beats Scissors.");
     }else if (computerSelection === "Paper" && playerSelection === "Rock") {
         losses = losses + 1;
-        return "Computer wins!  Paper covers Rock.";
+        results = alert("Computer wins!  Paper covers Rock.");
     }else if (computerSelection === "Scissors" && playerSelection === "Paper") {
         losses = losses + 1;
-        return "Computer wins!  Scissors cut Paper.";
+        results = alert("Computer wins!  Scissors cut Paper.");
     }else if (computerSelection === "Scissors" && playerSelection === "Rock") {
         wins = wins + 1;
-        return "You win!  Rock beats Scissors.";
+        results = alert("You win!  Rock beats Scissors.");
     }else if (computerSelection === "Rock" && playerSelection === "Paper") {
         wins = wins + 1;
-        return "You win!  Paper covers Rock.";
+        results = alert("You win!  Paper covers Rock.");
     }else if (computerSelection === "Paper" && playerSelection === "Scissors") {
         wins = wins + 1;
-        return "You win!  Scissors cut Paper.";
+        results = alert("You win!  Scissors cut Paper.");
     }else if (computerSelection === "Rock" && playerSelection === "Rock") {
-        ties = ties + 1;
-        return "Nobody wins!  You both picked Rock.";
+        results = alert("Nobody wins!  You both picked Rock.");
     }else if (computerSelection === "Paper" && playerSelection === "Paper") {
-        ties = ties + 1;
-        return "Nobody wins!  You both picked Paper.";
-    }else if (computerSelection === "Paper" && playerSelection === "Paper"){
-        ties = ties+ 1;
-        return "Nobody wins!  You both picked Scissors.";
+        results = alert("Nobody wins!  You both picked Paper.");
+    }else if (computerSelection === "Scissors" && playerSelection === "Scissors") {
+        results = alert("Nobody wins!  You both picked Scissors.");
         }    
     }
 
@@ -68,7 +75,7 @@ function computerPlay() {
         return "Rock"; 
     } else if (computer === 1) {
         return "Paper";
-    } else {
+    } else  {
         return "Scissors";
     }
 }
@@ -89,7 +96,7 @@ function playerPlay() {
     }
 }
 
-
+console.log(game());
 //const playerSelection = "players input r/p/s";
 //const playerSelection = playerPlay();
 
