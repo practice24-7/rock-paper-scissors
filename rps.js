@@ -3,24 +3,18 @@
 //this function will randomly choose either rock paper or scissors.
 //step two is to ask the user for their choice.
 //step three is a function that will take the previous functions
-//and decide who wins
-
-//function score - tallies if you win or the computer (ignores ties)
-//function score() {
-//
-//    return "You have " + wins + " wins and " + losses + " losses."
-//}
+//and decide who wins and keep score
 
 let wins = 0;
 let losses = 0;
 let results = " ";
 
-//function game - takes playRound and runs it 5 times.
+//function game - takes playRound and runs it 5 times in while loop.
+//also adds up wins and losses.
+//was originally a return statement but in order to tally results
+//changed it to an alert
 function game() {
-    //let wins = 0;
-    //let losses = 0;
-    //let results ="";
-
+    
     let i = 0;
     while(i < 5) {
         playRound(computerPlay(), playerPlay());
@@ -34,12 +28,10 @@ function game() {
     alert("You won " + wins + " times and lost " + losses + " times.")
 }
 
-//function playRound - code that decides who wins
+//function playRound - code that decides who wins using if and else if
+//takes 2 arguments which are also functions described below
 function playRound (computerSelection, playerSelection) {
-    //let wins = 0;
-    //let losses = 0;
-    //let results = " ";
-
+    
     if (computerSelection === "Rock" && playerSelection === "Scissors") {
         losses = losses + 1;
         results = alert( "Computer wins!  Rock beats Scissors.");
@@ -67,8 +59,8 @@ function playRound (computerSelection, playerSelection) {
         }    
     }
 
-function computerPlay() {
-    //randomizes computers turn (rock, paper, or scissors)
+//randomizes computers turn (rock, paper, or scissors)
+    function computerPlay() {
     let computer = Math.floor(Math.random()*3);
     
     if (computer === 0) {
@@ -80,9 +72,7 @@ function computerPlay() {
     }
 }
 
-//function playerPlay prompts player for move.
-//saves move in variable
-
+//function playerPlay prompts player for move and returns the choice.
 function playerPlay() {
     let player = prompt("Let's play Rock, Paper, Scissors!  Enter your choice: ")
     if (player === "rock" || player === "Rock" || player === "ROCK") {
@@ -96,7 +86,7 @@ function playerPlay() {
     }
 }
 
-console.log(game());
+game();
 //const playerSelection = "players input r/p/s";
 //const playerSelection = playerPlay();
 
